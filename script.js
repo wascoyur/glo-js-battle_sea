@@ -103,5 +103,9 @@ const fire = (event) => {
 localStorage.clear();
 const init = () => {
     const event = addEventListener('click', fire);
+    play.render();
+    again.addEventListener('click', () =>{
+        location.reload();
+    });
 };
 init();
