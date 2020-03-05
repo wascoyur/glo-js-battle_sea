@@ -1,103 +1,49 @@
-<<<<<<< HEAD
-/*jshint esversion: 6 */
 const record = document.getElementById('record');
 const shot = document.getElementById('shot');
 const hit = document.getElementById('hit');
 const dead = (document.getElementById('dead'));
 
-let table= document.getElementById('enemy');
-let again= document.getElementById('again');
+let table = document.getElementById('enemy');
+let again = document.getElementById('again');
 
 const play = {
-    record:0,
-    shot:0,
-    hit:0,
-    dead:0, 
-    render(){
+    record: 0,
+    shot: 0,
+    hit: 0,
+    dead: 0,
+    render() {
         record.textContent = this.record;
-        shot.textContent= this.shot;
-        hit.textContent= this.hit;
-        dead.textContent= this.dead;
-    }  ,
-    set updateData(data){
-        this[data]+=1;
+        shot.textContent = this.shot;
+        hit.textContent = this.hit;
+        dead.textContent = this.dead;
+    },
+    set updateData(data) {
+        this[data] += 1;
         this.render();
     }
 };
-const show ={
-    hit(){},
-    miss(elem){
+const show = {
+    hit() {},
+    miss(elem) {
         this.changeClass(elem, 'miss');
-        
+
     },
     changeClass(elem, value) {
-       elem.className = value; 
+        elem.className = value;
     },
-    dead(){}
+    dead() {}
 };
 
-const fire = (event) =>{
+const fire = (event) => {
     const target = event.target;
-    if(target.className!='miss'){
+    if (target.className != 'miss') {
         show.miss(target);
         play.updateData = 'shot';
     }
-    
-   // play.render();
+
+    // play.render();
 };
-const init =()=>{
+const init = () => {
     const event = addEventListener('click', fire);
 };
 init();
-=======
-/*jshint esversion: 6 */
-const record = document.getElementById('record');
-const shot = document.getElementById('shot');
-const hit = document.getElementById('hit');
-const dead = (document.getElementById('dead'));
-
-let table= document.getElementById('enemy');
-let again= document.getElementById('again');
-
-const play = {
-    record:0,
-    shot:0,
-    hit:0,
-    dead:0, 
-    render(){
-        record.textContent = this.record;
-        shot.textContent= this.shot;
-        hit.textContent= this.hit;
-        dead.textContent= this.dead;
-    }  ,
-    set updateData(data){
-        this[data]+=1;
-        this.render();
-    }
-};
-const show ={
-    hit(){},
-    miss(elem){
-        this.changeClass(elem, 'miss');
-        
-    },
-    changeClass(elem, value) {
-       elem.className = value; 
-    },
-    dead(){}
-};
-
-const fire = (event) =>{
-    const target = event.target;
-    if(target.className!='miss'){
-        show.miss(target);
-        play.updateData = 'shot';
-    }
-    
-   // play.render();
-};
-const init =()=>{
-    const event = addEventListener('click', fire);
-};
-init();
->>>>>>> 622553de7db90be76a6f0da4f7602cf8b3fa833b
